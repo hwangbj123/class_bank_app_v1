@@ -1,5 +1,6 @@
 package com.tencoding.bank.handler;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -10,15 +11,16 @@ import com.tencoding.bank.handler.exception.CustomRestfulException;
  *  Json, Xml 데이터를 가공해서 내려줄 수 있다
  */
 @RestControllerAdvice
+@Order(1)
 // IoC 대상 ( 메모리에 자동으로 올라감 ) + AoP 대상 ( 조금 다르긴 함 )
 public class MyRestfulExceptionHandler {
 
-	@ExceptionHandler(Exception.class)
-	public void exception(Exception e) {
-		System.out.println("===== 예외 발생 확인 =====");
-		System.out.println(e.getMessage());
-		System.out.println("------------------------");
-	}
+//	@ExceptionHandler(Exception.class)
+//	public void exception(Exception e) {
+//		System.out.println("===== 예외 발생 확인 =====");
+//		System.out.println(e.getMessage());
+//		System.out.println("------------------------");
+//	}
 	
 	// 사용자 정의 예외 클래스 활용
 	@ExceptionHandler(CustomRestfulException.class)
