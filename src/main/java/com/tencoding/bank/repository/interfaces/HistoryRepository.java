@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.tencoding.bank.dto.HistoryDto;
 import com.tencoding.bank.repository.model.History;
 
 @Mapper
@@ -22,4 +23,5 @@ public interface HistoryRepository {
 	// 출금 내역 -> dAccountId = id
 	public List<History> findByDAccountId(Integer id);
 
+	public List<HistoryDto> findByHistoryType(Integer id, String type);
 }
